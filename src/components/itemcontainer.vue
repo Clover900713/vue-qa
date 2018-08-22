@@ -51,7 +51,34 @@
       ...mapActions([
         'addNum', 'initializeData',
       ]),
+      //点击下一题
+      nextItem() {
 
+      },
+      //索引0-3对应A-D
+      chooseType: type => {
+        switch(type) {
+          case 0: return 'A'; break;
+          case 1: return 'B'; break;
+          case 2: return 'C'; break;
+          case 3: return 'D'; break;
+        }
+      },
+      //选中的答案信息
+      choosed(type, id) {
+
+      },
+      //到达最后一题，交卷，清空定时器，跳转分数页面
+      submit() {
+
+      }
+    },
+    created() {
+      //初始化信息
+      if (this.fatherComponent == 'home') {
+        this.initializeData();
+        document.body.style.background = 'url(./static/img/1-1.jpg)';
+      }
     }
   }
 </script>
