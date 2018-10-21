@@ -15,7 +15,7 @@
         <div class="item_list_container" v-if="itemDetail.length > 0">
           <header class="item_title">{{itemDetail[itemNum - 1].topic_name}}</header>
           <ul>
-            <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer" class="item_list">
+            <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer" v-bind:key="index" class="item_list">
               <span class="option_style">{{chooseType(index)}}</span>
               <span class="option_detail">{{item.answer_name}}</span>
             </li>
@@ -77,8 +77,61 @@
       //初始化信息
       if (this.fatherComponent == 'home') {
         this.initializeData();
-        document.body.style.background = 'url(./static/img/1-1.jpg)';
+        document.body.style.backgroundImage = 'url(./static/img/1-1.jpg)';
       }
     }
   }
 </script>
+
+<style lang="less">
+  .top_tips {
+    position: absolute;
+    height: 7.35rem;
+    width: 3.25rem;
+    top: -1.6rem;
+    right: 1.3rem;
+    background: url('../images/WechatIMG2.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+    .num_tip {
+      position: absolute;
+      left: 0.76rem;
+      bottom: 1.1rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      font-family: '黑体';
+      height: 0.7rem;
+      color: #a57c50;
+    }
+  }
+
+  .item_container_style {
+    position: absolute;
+    top: 4.1rem;
+		left: 1rem;
+    height: 11.625rem;
+    width: 13.15rem;
+    background: no-repeat;
+  }
+  .home_logo {
+    background-image: url(../images/1-2.png);
+    background-size: 13.142rem 100%;
+    background-position: right center;
+  }
+
+  .button_style {
+    position: absolute;
+    top: 16.5rem;
+    left: 50%;
+    width: 4.35rem;
+    height: 2.1rem;
+    margin-left: -2.2rem;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .start {
+    background-image: url('../images/1-4.png');
+  }
+</style>
+
