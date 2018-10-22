@@ -15,15 +15,15 @@
         <div class="item_list_container" v-if="itemDetail.length > 0">
           <header class="item_title">{{itemDetail[itemNum - 1].topic_name}}</header>
           <ul>
-            <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer" v-bind:key="index" class="item_list">
-              <span class="option_style">{{chooseType(index)}}</span>
+            <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer" v-bind:key="index" @click="choosed(index, item.topic_answer_id)" class="item_list">
+              <span class="option_style" :class="{'has_choosed': index==choosedNum}">{{chooseType(index)}}</span>
               <span class="option_detail">{{item.answer_name}}</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <span class="next_item buttom_style" @click="nextItem" v-if="itemNum < itemDetail.length"></span>
+      <span class="next_item button_style" @click="nextItem" v-if="itemNum < itemDetail.length"></span>
       <span class="submit_item button_style" @click="submitAnswer" v-else></span>
     </div>
   </section>
@@ -57,7 +57,7 @@
       },
       //索引0-3对应A-D
       chooseType: type => {
-        switch(type) {
+        switch (type) {
           case 0: return 'A'; break;
           case 1: return 'B'; break;
           case 2: return 'C'; break;
@@ -66,7 +66,8 @@
       },
       //选中的答案信息
       choosed(type, id) {
-
+        this.choosedNum = type;
+        this.choosedId = id;
       },
       //到达最后一题，交卷，清空定时器，跳转分数页面
       submit() {
@@ -113,10 +114,16 @@
     width: 13.15rem;
     background: no-repeat;
   }
+
   .home_logo {
     background-image: url(../images/1-2.png);
     background-size: 13.142rem 100%;
     background-position: right center;
+  }
+
+  .item_back {
+    background-image: url(../images/2-1.png);
+    background-size: 100% 100%;
   }
 
   .button_style {
@@ -132,6 +139,50 @@
 
   .start {
     background-image: url('../images/1-4.png');
+  }
+
+  .next_item {
+    background-image: url(../images/2-2.png);
+  }
+
+  .item_list_container {
+    position: absolute;
+    width: 8rem;
+    left: 3rem;
+  }
+
+  .item_title {
+    font-size: 0.65rem;
+    height: 0.7rem;
+    color: #fff;
+  }
+
+  .item_list {
+    width: 10rem;
+    span {
+      display: inline-block;
+      font-size: 0.6rem;
+      color: #fff;
+      vertical-align: middle;
+    }
+    .option_style {
+      width: 0.725rem;
+      height: 0.725rem;
+      border:1px solid #fff; 
+      border-radius: 50%;
+      line-height: 0.725rem;
+      text-align: center;
+      font-size: 0.5rem;
+      font-family: 'Arial';
+    }
+    .has_choosed {
+      background-color: #ffd400;
+      border-color: #ffd400;
+      color: #575757;
+    }
+    .option_detail {
+      width: 8rem;
+    }
   }
 </style>
 
