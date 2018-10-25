@@ -44,36 +44,35 @@
     }, 
     computed: mapState(['answerid']),
     created() {
+      console.log(this.answerid);
+      document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)';
       this.computedScore();
-      this.getScoreTip();
-      document.body.style.background = 'url(./static/img/4-1.jpg)';
+      this.getTips();
     },
     methods: {
-      //计算分数
       computedScore() {
         this.answerid.forEach((item, index) => {
-          if (item == rightAnswer[index]) {
+          if (item === this.rightAnswer[index]) {
             this.score += 20;
           }
         });
+        console.log(this.score);
       },
-      //是否显示分享提示
-      showCover: function() {
-        this.showHide = !this.showHide;
-      },
-      //根据分数显示提示
-      getScoreTip: function() {
-        if (this.score <= 20) {
+      getTips() {
+        if (this.score < 20) {
           this.scoreTips = this.scoreTipsArr[0];
-        } else if (this.score <= 40) {
+        } else if (this.score < 40) {
           this.scoreTips = this.scoreTipsArr[1];
-        } else if (this.score <= 60) {
+        } else if (this.score < 60) {
           this.scoreTips = this.scoreTipsArr[2];
-        } else if (this.score <= 80) {
+        } else if (this.score < 80) {
           this.scoreTips = this.scoreTipsArr[3];
-        } else if (this.score <= 100) {
+        } else {
           this.scoreTips = this.scoreTipsArr[4];
         }
+      },
+      showCover() {
+        this.showHide = !this.showHide;
       }
     }
   }

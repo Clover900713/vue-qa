@@ -53,7 +53,13 @@
       ]),
       //点击下一题
       nextItem() {
+        if (this.choosedNum != null) {
+          this.choosedNum = null;
 
+          this.addNum(this.choosedId);
+        } else {
+          alert('您还没有选择哦！');
+        }
       },
       //索引0-3对应A-D
       chooseType: type => {
@@ -70,8 +76,15 @@
         this.choosedId = id;
       },
       //到达最后一题，交卷，清空定时器，跳转分数页面
-      submit() {
-
+      submitAnswer() {
+        if (this.choosedNum != null) {
+          this.chooseNum == null;
+          this.addNum(this.choosedId);
+          clearInterval(this.timer);
+          this.$router.push('score');
+        } else {
+          alert('您还没有选择哦！');
+        }
       }
     },
     created() {
@@ -143,6 +156,10 @@
 
   .next_item {
     background-image: url(../images/2-2.png);
+  }
+
+  .submit_item {
+    background-image: url(../images/3-1.png);
   }
 
   .item_list_container {
