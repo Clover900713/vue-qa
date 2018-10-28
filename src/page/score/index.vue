@@ -83,5 +83,76 @@
     background-image: url(../../images/4-1.jpg);
     padding-top: 1.2rem;
   }
+
+  .your_scores_container {
+    width: 9.7rem;
+    height: 9.1rem;
+    background: url('../../images/4-2.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    .your_scores {
+      text-align: center;
+      padding-top: 4.7rem;
+      padding-left: 0.7rem;
+      font-size: 1.4rem;
+      font-family: 'Microsoft YaHei';
+      font-weight: 900;
+      -webkit-text-stroke: 0.05rem #412318;
+      .score_num{
+        font-family: Tahoma,Helvetica,Arial;
+          color: #a51d31;
+      }
+      .fenshu{
+        color: #a51d31;
+      }
+    }
+    .result_tip {
+      text-align: center;
+       width: 9rem;
+      font-size: 0.65rem;
+      padding-left: 1rem;
+    }
+  }
+      .share_button{
+        width: 6.025rem;
+        height: 2.4rem;
+        margin: 0.8rem auto 0;
+        background: url(../../images/4-3.png) no-repeat 0.4rem 0;
+        background-size: 5.825rem 100%;
+    }
+    .share_code{
+        width: 5.3rem;
+        margin: 1.5rem auto 0;
+        .share_header{
+            color: #664718;
+            font-size: 0.475rem;
+            font-family: 'Microsoft YaHei';
+            width: 7rem;
+            font-weight: 500;
+        }
+        .code_img{
+            height: 5.3rem;
+            width: 5.3rem;
+            margin-top: 0.5rem;
+        }
+    }
+    .share_cover{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        left: 0;
+        background: url(../../images/5-1.png) no-repeat;
+        background-size: 100% 100%;
+        opacity: 0.92;
+    }
+    .share_img{
+        height: 10.975rem;
+        width: 11.95rem;
+        position: fixed;
+        top: 0.5rem;
+        left: 50%;
+        margin-left: -5.975rem;
+    }
 </style>
 
